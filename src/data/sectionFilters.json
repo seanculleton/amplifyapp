@@ -130,6 +130,28 @@
                 "displayName": "Tractors"
             }
         ]
+    },
+    {
+        "keyword": "Electric",
+        "type": "filter",
+        "filter": "fuelType",
+        "sections": [
+            {
+                "name": "cars",
+                "displayName": "Cars"
+            }
+        ]
+    },
+    {
+        "keyword": "Hybrid",
+        "type": "filter",
+        "filter": "fuelType",
+        "sections": [
+            {
+                "name": "cars",
+                "displayName": "Cars"
+            }
+        ]
     }
 
 ]

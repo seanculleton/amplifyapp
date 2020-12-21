@@ -99,7 +99,7 @@ function App() {
   }
 
   const filteredSearchComponent = (match, section, model) => {
-    let filter = `${match.keyword}'s`;
+    let filter = `${match.keyword}`;
     let queryString = `?${match.filter}=${match.keyword}`;
     if (model) {
       filter = `${match.keyword} ${model.displayName}'s`
@@ -108,7 +108,7 @@ function App() {
     return (`
       <div className="card card-body mb-1">
           <a href="https://www.donedeal.ie/${section.name}${queryString}">
-            <h4>Filter all ${filter} in ${section.displayName} <span classname="text-primary"></span></h4>
+            <h4>Filter all ${filter} ${section.displayName} <span classname="text-primary"></span></h4>
           </a>
         </div>
       `
@@ -134,7 +134,8 @@ function App() {
         
         <div>
           <ul>
-            <li>Suggest filtered search in section. Tip! try typing Ford, BMW or Audi</li>
+            <li>Suggest filtered search in section. Tip! try typing Electric or Hybrid</li>
+            <li>Suggest filtered make/model search in a section. Tip! try typing Ford, BMW or Audi</li>
             <li>Suggest filtered search in Dealer Directory</li>
             <li>Suggest top level sections. Tip! try typing Cars, Campers or Tractors</li>
             <li>Suggest New Car ad details. Tip! try typing Mercedez-Benz</li>
