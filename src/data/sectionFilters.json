@@ -1,11 +1,51 @@
 [
     {
+        "keyword": "Cars",
+        "type": "section",
+        "sections":[
+            {
+                "name": "cars",
+                "displayName": "Cars"
+            }
+        ]
+    },
+    {
+        "keyword": "Tractors",
+        "type": "section",
+        "sections":[
+            {
+                "name": "tractors",
+                "displayName": "Tractors"
+            }
+        ]
+    },
+    {
+        "keyword": "Campers",
+        "type": "section",
+        "sections":[
+            {
+                "name": "campers",
+                "displayName": "Campers"
+            }
+        ]
+    },
+    {
         "keyword": "Ford",
+        "type": "filter",
         "filter": "make",
         "sections": [
             {
                 "name": "cars",
-                "displayName": "Cars"
+                "displayName": "Cars",
+                "models": [
+                    {
+                        "displayName": "Focus"
+                    },{
+                        "displayName": "Modeo"
+                    },{
+                        "displayName": "Fiesta"
+                    }
+                ]
             },{
                 "name": "commercials",
                 "displayName": "Commercials"
@@ -19,7 +59,16 @@
         "sections": [
             {
                 "name": "cars",
-                "displayName": "Cars"
+                "displayName": "Cars",
+                "models": [
+                    {
+                        "displayName": "A4"
+                    },{
+                        "displayName": "A6"
+                    },{
+                        "displayName": "A3"
+                    }
+                ]
             },{
                 "name": "commercials",
                 "displayName": "Commercials"
@@ -33,7 +82,16 @@
         "sections": [
             {
                 "name": "cars",
-                "displayName": "Cars"
+                "displayName": "Cars",
+                "models": [
+                    {
+                        "displayName": "5-Series"
+                    },{
+                        "displayName": "3-Series"
+                    },{
+                        "displayName": "X5"
+                    }
+                ]
             },{
                 "name": "commercials",
                 "displayName": "Commercials"

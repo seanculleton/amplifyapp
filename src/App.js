@@ -28,10 +28,22 @@ function App() {
 
       
       matches.forEach(match => {
-        // build list of filtered searches
-        match.sections.forEach(section => {
-          html += filteredSearchComponent(match, section)
-        })
+        // suggest section
+        if (match.type === 'section') {
+          html += suggestedSectionComponent(match)
+        }
+
+        // suggest list of filtered searches
+        if (match.type === 'filter') {
+          match.sections.forEach(section => {
+            if (section.models) {
+              section.models.forEach(model => {
+                html += filteredSearchComponent(match, section, model)    
+              })
+            }
+            html += filteredSearchComponent(match, section)
+          })  
+        }
 
         //suggest franchise search
         if (match.franchise) {
@@ -49,18 +61,35 @@ function App() {
     return (`
       <div className="card card-body mb-1">
           <a href="https://www.donedeal.ie/find-a-dealer?franchises=${match.keyword}">
-            <h4>View all ${match.keyword}  dealer franchises</h4>
+            <h4>View all ${match.keyword} dealer franchises</h4>
           </a>
         </div>
       `
     );
   }
 
-  const filteredSearchComponent = (match, section) => {
+  const suggestedSectionComponent = (match) => {
+    return (`
+    <div className="card card-body mb-1">
+        <a href="https://www.donedeal.ie/${match.sections[0].name}">
+          <h4>View all ${match.keyword}</h4>
+        </a>
+      </div>
+    `
+  );
+  }
+
+  const filteredSearchComponent = (match, section, model) => {
+    let filter = `${match.keyword}'s`;
+    let queryString = `?${match.filter}=${match.keyword}`;
+    if (model) {
+      filter = `${match.keyword} ${model.displayName}'s`
+      queryString = `?${match.filter}=${match.keyword}&model=${model.displayName}`
+    }
     return (`
       <div className="card card-body mb-1">
-          <a href="https://www.donedeal.ie/${section.name}?${match.filter}=${match.keyword}">
-            <h4>Filter ${match.filter}: ${match.keyword} in ${section.displayName} <span classname="text-primary"></span></h4>
+          <a href="https://www.donedeal.ie/${section.name}${queryString}">
+            <h4>Filter all ${filter} in ${section.displayName} <span classname="text-primary"></span></h4>
           </a>
         </div>
       `
@@ -86,9 +115,9 @@ function App() {
         
         <div>
           <ul>
-            <li>Suggest filtered search in section</li>
+            <li>Suggest filtered search in section. Tip! try typing Ford, BMW or Audi</li>
             <li>Suggest filtered search in Dealer Directory</li>
-            <li>Suggest top level sections</li>
+            <li>Suggest top level sections. Tip! try typing Cars, Campers or Tractors</li>
             <li>Suggest New Car ad details</li>
             <li>Suggest popular searches</li>
           </ul>
