@@ -10,7 +10,8 @@
                 "name": "commercials",
                 "displayName": "Commercials"
             }
-        ]
+        ],
+        "franchise": true
     },
     {
         "keyword": "Audi",
@@ -23,7 +24,8 @@
                 "name": "commercials",
                 "displayName": "Commercials"
             }
-        ]
+        ],
+        "franchise": true
     },
     {
         "keyword": "BMW",
@@ -36,7 +38,8 @@
                 "name": "commercials",
                 "displayName": "Commercials"
             }
-        ]
+        ],
+        "franchise": true
     },
     {
         "keyword": "Ford New Holland",

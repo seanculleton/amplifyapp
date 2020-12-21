@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import './css/bootstrap.min.css';
-import states from './data/states.json'
 import sectionFilters from './data/sectionFilters.json'
 
 function App() {
@@ -26,10 +25,18 @@ function App() {
   const outputHTMLSuggestions = matches => {
     if (matches.length > 0) {
       let html = '';
+
+      
       matches.forEach(match => {
+        // build list of filtered searches
         match.sections.forEach(section => {
-          html += suggestionCompontent(match, section)
+          html += filteredSearchComponent(match, section)
         })
+
+        //suggest franchise search
+        if (match.franchise) {
+          html += franchiseComponent(match)
+        }
       });
 
       console.log(html);
@@ -38,7 +45,18 @@ function App() {
     }
   }
 
-  const suggestionCompontent = (match, section) => {
+  const franchiseComponent = (match) => {
+    return (`
+      <div className="card card-body mb-1">
+          <a href="https://www.donedeal.ie/find-a-dealer?franchises=${match.keyword}">
+            <h4>View all ${match.keyword}  dealer franchises</h4>
+          </a>
+        </div>
+      `
+    );
+  }
+
+  const filteredSearchComponent = (match, section) => {
     return (`
       <div className="card card-body mb-1">
           <a href="https://www.donedeal.ie/${section.name}?${match.filter}=${match.keyword}">
@@ -69,43 +87,14 @@ function App() {
         <div>
           <ul>
             <li>Suggest filtered search in section</li>
-            <li>Suggest New Car ad details</li>
             <li>Suggest filtered search in Dealer Directory</li>
-            <li>Suggest popular searches</li>
             <li>Suggest top level sections</li>
+            <li>Suggest New Car ad details</li>
+            <li>Suggest popular searches</li>
           </ul>
         </div>
       </div>
   );
-
-
-
-  const searchStates = async (event)=>{
-    const searchText = event.target.value;
-    //get matches
-    let matches = states.filter(state => {
-      const regex = new RegExp(`^${searchText}`, 'gi');
-      return state.name.match(regex) || state.abbr.match(regex)
-    })
-
-    if (searchText.length === 0) {
-      matches = []
-      setMatchList('')
-    }
-
-    outputHTML(matches)
-  }
-
-  const outputHTML = matches => {
-    if (matches.length > 0) {
-      const html = matches.map(match => `<div className="card card-body mb-1">
-          <h4>${match.name} (${match.abbr}) <span classname="text-primary">${match.capital}</span></h4>
-        </div>`).join();
-      console.log(html);
-
-      setMatchList(html);
-    }
-  }
 }
 
 
