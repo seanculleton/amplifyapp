@@ -30,6 +30,28 @@
         ]
     },
     {
+        "keyword": "Mercedes-Benz",
+        "type": "filter",
+        "filter": "make",
+        "sections": [
+            {
+                "name": "new-cars",
+                "displayName": "New Cars"
+            }
+        ],
+        "newCars": [
+            {
+                "displayName": "A-Class"
+            },
+            {
+                "displayName": "C-Class"
+            },
+            {
+                "displayName": "CLA"
+            }
+        ]
+    },
+    {
         "keyword": "Ford",
         "type": "filter",
         "filter": "make",

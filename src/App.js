@@ -49,12 +49,31 @@ function App() {
         if (match.franchise) {
           html += franchiseComponent(match)
         }
+
+        //suggest New Car ad
+        if (match.newCars) {
+          match.newCars.forEach(newCar => {
+            html += newCarAdComponent(match, newCar)
+          })
+          
+        }
       });
 
       console.log(html);
 
       setMatchList(html);
     }
+  }
+
+  const newCarAdComponent = (match, newCar) => {
+    return (`
+      <div className="card card-body mb-1">
+          <a href="https://www.donedeal.ie/new-car-for-sale/${match.keyword}/${newCar.displayName}">
+            <h4>View a brand new ${match.keyword} ${newCar.displayName}</h4>
+          </a>
+        </div>
+      `
+    );
   }
 
   const franchiseComponent = (match) => {
@@ -118,7 +137,7 @@ function App() {
             <li>Suggest filtered search in section. Tip! try typing Ford, BMW or Audi</li>
             <li>Suggest filtered search in Dealer Directory</li>
             <li>Suggest top level sections. Tip! try typing Cars, Campers or Tractors</li>
-            <li>Suggest New Car ad details</li>
+            <li>Suggest New Car ad details. Tip! try typing Mercedez-Benz</li>
             <li>Suggest popular searches</li>
           </ul>
         </div>
