@@ -138,7 +138,6 @@ function App() {
             <li>Suggest filtered search in Dealer Directory</li>
             <li>Suggest top level sections. Tip! try typing Cars, Campers or Tractors</li>
             <li>Suggest New Car ad details. Tip! try typing Mercedez-Benz</li>
-            <li>Suggest popular searches</li>
           </ul>
         </div>
       </div>
