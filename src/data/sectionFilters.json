@@ -1,0 +1,52 @@
+[
+    {
+        "keyword": "Ford",
+        "filter": "make",
+        "sections": [
+            {
+                "name": "cars",
+                "displayName": "Cars"
+            },{
+                "name": "commercials",
+                "displayName": "Commercials"
+            }
+        ]
+    },
+    {
+        "keyword": "Audi",
+        "filter": "make",
+        "sections": [
+            {
+                "name": "cars",
+                "displayName": "Cars"
+            },{
+                "name": "commercials",
+                "displayName": "Commercials"
+            }
+        ]
+    },
+    {
+        "keyword": "BMW",
+        "filter": "make",
+        "sections": [
+            {
+                "name": "cars",
+                "displayName": "Cars"
+            },{
+                "name": "commercials",
+                "displayName": "Commercials"
+            }
+        ]
+    },
+    {
+        "keyword": "Ford New Holland",
+        "filter": "make",
+        "sections": [
+            {
+                "name": "tractors",
+                "displayName": "Tractors"
+            }
+        ]
+    }
+
+]
