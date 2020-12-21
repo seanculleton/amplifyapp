@@ -152,6 +152,19 @@
                 "displayName": "Cars"
             }
         ]
+    },
+    {
+        "keyword": "Boland New Ross",
+        "type": "dealer",
+        "value": "boland-new-ross"
+    },
+    {
+        "keyword": "Bolands Wexford",
+        "type": "dealer",
+        "value": "bolands-wexford"
     }
+
+
+
 
 ]
