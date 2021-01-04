@@ -116,7 +116,7 @@ function App() {
     let filter = `${match.keyword}`;
     let queryString = `?${match.filter}=${match.keyword}`;
     if (model) {
-      filter = `${match.keyword} ${model.displayName}'s`
+      filter = `${match.keyword} ${model.displayName}`
       queryString = `?${match.filter}=${match.keyword}&model=${model.displayName}`
     }
     return (`
@@ -147,12 +147,17 @@ function App() {
         <div dangerouslySetInnerHTML={{__html: matchList}} />
         
         <div>
+          <p>The following are use cases that could be added to our autocomplete search to make it more powerful, by getting users to their content in less clicks, 
+            and reduce the amount of keyword searches where a more appropriate option is available</p>
           <ul>
+            <li>Suggest top level sections. Tip! try typing Cars, Campers or Tractors</li>
+              <ul>
+                <li>The intention is to replace searching the section name in that section, ie. search for Cars in Cars</li>
+              </ul>
             <li>Suggest filtered search in section. Tip! try typing Electric or Hybrid</li>
             <li>Suggest filtered make/model search in a section. Tip! try typing Ford, BMW or Audi</li>
-            <li>Suggest filtered search in Dealer Directory</li>
-            <li>Suggest top level sections. Tip! try typing Cars, Campers or Tractors</li>
-            <li>Suggest New Car ad details. Tip! try typing Mercedez-Benz</li>
+            <li>Suggest filtered search in Dealer Directory for franchises. Tip! Ford, BMW or Audi</li>
+            <li>Suggest filtered New Cars search or ad details. Tip! try typing Mercedez-Benz</li>
             <li>Suggest Dealer Showrooms. Tip! try typing Boland</li>
           </ul>
         </div>
